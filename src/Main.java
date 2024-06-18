@@ -18,7 +18,7 @@ public class Main {
             //вывод команд из enum
             System.out.println("Введите команду:" + Arrays.toString(CommandsData.values()).toLowerCase());
             //сохранение ввода пользователя
-            String userCommand = scanner.next().toUpperCase();
+            String userCommand = scanner.nextLine().trim().toUpperCase();
 
             //проверка существования команды
             try {
@@ -32,22 +32,22 @@ public class Main {
                 case "ADD" -> {
                    AnimalFactory animalFactory = new AnimalFactory();
                    System.out.println("Выберите животное: " + Arrays.toString(AnimalTypeData.values()));
-                   String userAnimalType = scanner.next();
+                   String userAnimalType = scanner.nextLine().trim();
 
                    //проверка корретности значения
                    while(!AnimalTypeData.isCorrectType(userAnimalType)) {
                        System.out.println("Вы ввели неверный вид животного. Повторите ввод \n" +
                                "Выберите животное: " + Arrays.toString(AnimalTypeData.values()));
-                       userAnimalType = scanner.next();
+                       userAnimalType = scanner.nextLine().trim();
                    }
 
-                   //создание животного
+                   //поиск типа животного в enum и создание животного
                     String typeOfAnimal = AnimalTypeData.findTypeAnimal(userAnimalType);
                     Animal userAnimal = animalFactory.create(AnimalTypeData.valueOf(typeOfAnimal));
 
                     //ввод имени
                     System.out.println("Введите имя животного: ");
-                    String animalName = scanner.next();
+                    String animalName = scanner.nextLine().trim();
                     userAnimal.setName(animalName);
 
                     //ввод возраста
@@ -55,7 +55,7 @@ public class Main {
 
                     //проверка: возраст является целым числом
                     while (true) {
-                        String userAgeAnimal = scanner.next();
+                        String userAgeAnimal = scanner.nextLine().trim();
                         try {
                             int ageAnimal = Integer.parseInt(userAgeAnimal);
                             userAnimal.setAge(ageAnimal);
@@ -71,7 +71,7 @@ public class Main {
 
                     //проверка: вес является целым числом
                     while (true) {
-                        String userWeightAnimal = scanner.next();
+                        String userWeightAnimal = scanner.nextLine().trim();
                         try {
                             int weightAnimal = Integer.parseInt(userWeightAnimal);
                             userAnimal.setWeight(weightAnimal);
@@ -83,14 +83,16 @@ public class Main {
 
                     //ввод цвета
                     System.out.println("Введите цвет животного: " + Arrays.toString(ColorData.values()));
-                    String userColorType = scanner.next();
+                    String userColorType = scanner.nextLine().trim();
 
                     //проверка корретности значения
                     while(!ColorData.isCorrectColor(userColorType)) {
                         System.out.println("Вы ввели неверный цвет животного. Повторите ввод \n" +
                                 "Выберите цвет: " + Arrays.toString(ColorData.values()));
-                        userColorType = scanner.next();
+                        userColorType = scanner.nextLine().trim();
                     }
+
+                    //поиск введенного значения в enum ColorData
                     ColorData colorOfAnimal = ColorData.findColorAnimal(userColorType);
                     userAnimal.setColor(colorOfAnimal);
 

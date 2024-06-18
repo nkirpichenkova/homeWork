@@ -11,26 +11,32 @@ public abstract class Animal {
     //getter and setter для полей
 
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public int getAge() {
+
         return age;
     }
 
     public void setAge(int age) {
+
         this.age = age;
     }
 
     public int getWeight() {
+
         return weight;
     }
 
     public void setWeight(int weight) {
+
         this.weight = weight;
     }
 
@@ -52,10 +58,12 @@ public abstract class Animal {
     }
 
     void drink () {
+
         System.out.println("Я пью");
     }
 
     void eat () {
+
         System.out.println("Я ем");
     }
 

@@ -13,7 +13,9 @@ public enum AnimalTypeData {
     public String toString() {
         return userName;
     }
-     public static boolean isCorrectType(String userName) {
+
+    //метод проверяет: есть ли введенное пользователем значение в enum
+    public static boolean isCorrectType(String userName) {
          for(AnimalTypeData animal : AnimalTypeData.values()){
              if(animal.toString().equals(userName)){
                  return true;
@@ -21,7 +23,9 @@ public enum AnimalTypeData {
          }
          return false;
         }
-     public static String findTypeAnimal (String userName) {
+
+        //метод ищет и возвращет по введенному пользователем значению, элемент enum
+        public static String findTypeAnimal (String userName) {
          for(AnimalTypeData animal : AnimalTypeData.values()){
              if(animal.toString().equals(userName)){
                  return animal.name();
