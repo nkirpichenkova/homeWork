@@ -58,7 +58,12 @@ public class Main {
                         String userAgeAnimal = scanner.nextLine().trim();
                         try {
                             int ageAnimal = Integer.parseInt(userAgeAnimal);
-                            userAnimal.setAge(ageAnimal);
+                            if (ageAnimal > 0) {
+                                userAnimal.setAge(ageAnimal);
+                            } else {
+                                System.out.println("Вы ввели отрицательное значение, либо равное 0. Пожалуйста, повторите ввод: ");
+                                continue;
+                            }
                             break;
                         } catch (NumberFormatException e) {
                             System.out.println("Введенный возраст не является целым числом. Пожалуйста, повторите ввод: ");
@@ -74,7 +79,12 @@ public class Main {
                         String userWeightAnimal = scanner.nextLine().trim();
                         try {
                             int weightAnimal = Integer.parseInt(userWeightAnimal);
-                            userAnimal.setWeight(weightAnimal);
+                            if (weightAnimal > 0) {
+                                userAnimal.setWeight(weightAnimal);
+                            } else {
+                                System.out.println("Вы ввели отрицательное значение, либо равное 0. Пожалуйста, повторите ввод: ");
+                                continue;
+                            }
                             break;
                         } catch (NumberFormatException e) {
                             System.out.println("Введенный вес не является целым числом. Пожалуйста, повторите ввод: ");
